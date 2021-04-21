@@ -15,4 +15,4 @@ VOLUME ["/files"]
 
 EXPOSE 8080
 
-CMD [ "browsepy", "0.0.0.0", "8080", "--directory", "/files", "–-upload", "/files"]
+CMD [ "tail", "-f", "/dev/null"]
