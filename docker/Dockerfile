@@ -11,8 +11,11 @@ RUN pip install backports.shutil-get-terminal-size scandir browsepy
 
 RUN mkdir files
 
+RUN chgrp -R 0 /files && \
+    chmod -R g=u /files
+
 VOLUME ["/files"]
 
 EXPOSE 8080
 
-CMD [ "tail", "-f", "/dev/null"]
+CMD [ "browsepy", "0.0.0.0", "8080", "–-upload", "/files", "--directory", "/files"]
